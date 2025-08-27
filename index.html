@@ -197,6 +197,7 @@
     <header class="glass-effect border-b border-white/20 sticky top-0 z-50">
       <nav class="container mx-auto px-4 lg:px-6 py-4">
         <div class="flex justify-between items-center">
+          <!-- Logo & Title -->
           <div class="flex items-center space-x-3 animate-fade-in">
             <div
               class="w-12 h-12 rounded-full gradient-bg flex items-center justify-center shadow-lg"
@@ -215,7 +216,8 @@
             </div>
           </div>
 
-          <div class="flex gap-3 lg:gap-6">
+          <!-- Desktop counters -->
+          <div class="hidden lg:flex gap-3 lg:gap-6">
             <div
               class="flex items-center px-4 lg:px-6 py-2 rounded-full bg-gradient-to-r from-red-50 to-red-100 border border-red-200 transition-all hover:shadow-md"
             >
@@ -247,6 +249,38 @@
                 class="fas fa-copy text-blue-500 ml-2 floating-element"
                 style="animation-delay: 1s"
               ></i>
+            </div>
+          </div>
+
+          <!-- Mobile counters (shown only on small screens) -->
+          <div class="flex flex-col gap-2 lg:hidden">
+            <div
+              class="flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-red-50 to-red-100 border border-red-200"
+            >
+              <span class="text-sm font-bold text-red-600" id="heartCountMobile"
+                >0</span
+              >
+              <i class="fas fa-heart text-red-500 ml-2"></i>
+            </div>
+
+            <div
+              class="flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-yellow-50 to-yellow-100 border border-yellow-200"
+            >
+              <span
+                class="text-sm font-bold text-yellow-600"
+                id="coinCountMobile"
+                >60</span
+              >
+              <i class="fas fa-coins text-yellow-500 ml-2"></i>
+            </div>
+
+            <div
+              class="flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-blue-50 to-blue-100 border border-blue-200"
+            >
+              <span class="text-sm text-blue-600 font-bold" id="copyCountMobile"
+                >0</span
+              >
+              <i class="fas fa-copy text-blue-500 ml-2"></i>
             </div>
           </div>
         </div>
@@ -312,6 +346,9 @@
             <!-- Fire Service -->
             <div
               class="service-card bg-white rounded-2xl shadow-lg p-6 border border-gray-100"
+              data-name="Fire Service"
+              data-number="999"
+              data-department="National Emergency"
             >
               <div class="flex justify-between items-start mb-4">
                 <div
@@ -348,6 +385,9 @@
             <!-- Police -->
             <div
               class="service-card bg-white rounded-2xl shadow-lg p-6 border border-gray-100"
+              data-name="Police"
+              data-number="999"
+              data-department="Emergency Police"
             >
               <div class="flex justify-between items-start mb-4">
                 <div
@@ -374,7 +414,7 @@
                 </button>
                 <button
                   class="btn-success text-white px-4 py-2 rounded-lg flex items-center flex-1 justify-center"
-                  onclick="makeCall('Police','999')"
+                  onclick="makeCall('Police', '999')"
                 >
                   <i class="fas fa-phone-alt mr-2"></i>Call
                 </button>
@@ -384,6 +424,9 @@
             <!-- Ambulance -->
             <div
               class="service-card bg-white rounded-2xl shadow-lg p-6 border border-gray-100"
+              data-name="Ambulance"
+              data-number="999"
+              data-department="Medical Emergency"
             >
               <div class="flex justify-between items-start mb-4">
                 <div
@@ -410,7 +453,7 @@
                 </button>
                 <button
                   class="btn-success text-white px-4 py-2 rounded-lg flex items-center flex-1 justify-center"
-                  onclick="makeCall('ambulance','999')"
+                  onclick="makeCall('Ambulance', '999')"
                 >
                   <i class="fas fa-phone-alt mr-2"></i>Call
                 </button>
@@ -420,6 +463,9 @@
             <!-- Anti-Corruption -->
             <div
               class="service-card bg-white rounded-2xl shadow-lg p-6 border border-gray-100"
+              data-name="Anti-Corruption"
+              data-number="106"
+              data-department="Report Corruption"
             >
               <div class="flex justify-between items-start mb-4">
                 <div
@@ -448,45 +494,7 @@
                 </button>
                 <button
                   class="btn-success text-white px-4 py-2 rounded-lg flex items-center flex-1 justify-center"
-                  onclick="makeCall('corruption','106')"
-                >
-                  <i class="fas fa-phone-alt mr-2"></i>Call
-                </button>
-              </div>
-            </div>
-
-            <!-- Railway Helpline -->
-            <div
-              class="service-card bg-white rounded-2xl shadow-lg p-6 border border-gray-100"
-            >
-              <div class="flex justify-between items-start mb-4">
-                <div
-                  class="w-14 h-14 rounded-xl bg-orange-100 flex items-center justify-center service-icon"
-                >
-                  <i class="fas fa-train text-orange-600 text-2xl"></i>
-                </div>
-                <button
-                  class="text-red-400 hover:text-red-600 transition-colors"
-                  onclick="toggleFavorite(this)"
-                >
-                  <i class="far fa-heart text-xl"></i>
-                </button>
-              </div>
-              <h3 class="text-xl font-bold text-gray-800 mb-2">
-                Railway Helpline
-              </h3>
-              <p class="text-3xl font-bold text-orange-600 mb-1">16318</p>
-              <p class="text-gray-500 mb-4">Train Information</p>
-              <div class="flex gap-3">
-                <button
-                  class="btn-primary text-white px-4 py-2 rounded-lg flex items-center flex-1 justify-center"
-                  onclick="copyNumber('16318')"
-                >
-                  <i class="far fa-copy mr-2"></i>Copy
-                </button>
-                <button
-                  class="btn-success text-white px-4 py-2 rounded-lg flex items-center flex-1 justify-center"
-                  onclick="makeCall('railway','16318')"
+                  onclick="makeCall('Anti-Corruption', '106')"
                 >
                   <i class="fas fa-phone-alt mr-2"></i>Call
                 </button>
@@ -496,12 +504,15 @@
             <!-- National Helpline -->
             <div
               class="service-card bg-white rounded-2xl shadow-lg p-6 border border-gray-100"
+              data-name="National Helpline"
+              data-number="333"
+              data-department="Citizen Support"
             >
               <div class="flex justify-between items-start mb-4">
                 <div
-                  class="w-14 h-14 rounded-xl bg-indigo-100 flex items-center justify-center service-icon"
+                  class="w-14 h-14 rounded-xl bg-yellow-100 flex items-center justify-center service-icon"
                 >
-                  <i class="fas fa-headset text-indigo-600 text-2xl"></i>
+                  <i class="fas fa-info-circle text-yellow-600 text-2xl"></i>
                 </div>
                 <button
                   class="text-red-400 hover:text-red-600 transition-colors"
@@ -513,8 +524,8 @@
               <h3 class="text-xl font-bold text-gray-800 mb-2">
                 National Helpline
               </h3>
-              <p class="text-3xl font-bold text-indigo-600 mb-1">333</p>
-              <p class="text-gray-500 mb-4">Government Info</p>
+              <p class="text-3xl font-bold text-yellow-600 mb-1">333</p>
+              <p class="text-gray-500 mb-4">Citizen Support</p>
               <div class="flex gap-3">
                 <button
                   class="btn-primary text-white px-4 py-2 rounded-lg flex items-center flex-1 justify-center"
@@ -524,7 +535,132 @@
                 </button>
                 <button
                   class="btn-success text-white px-4 py-2 rounded-lg flex items-center flex-1 justify-center"
-                  onclick="makeCall('National', '333')"
+                  onclick="makeCall('National Helpline', '333')"
+                >
+                  <i class="fas fa-phone-alt mr-2"></i>Call
+                </button>
+              </div>
+            </div>
+
+            <!-- Women & Child Helpline -->
+            <div
+              class="service-card bg-white rounded-2xl shadow-lg p-6 border border-gray-100"
+              data-name="Women and Child Helpline"
+              data-number="109"
+              data-department="Safety & Protection"
+            >
+              <div class="flex justify-between items-start mb-4">
+                <div
+                  class="w-14 h-14 rounded-xl bg-pink-100 flex items-center justify-center service-icon"
+                >
+                  <i class="fas fa-female text-pink-600 text-2xl"></i>
+                </div>
+                <button
+                  class="text-red-400 hover:text-red-600 transition-colors"
+                  onclick="toggleFavorite(this)"
+                >
+                  <i class="far fa-heart text-xl"></i>
+                </button>
+              </div>
+              <h3 class="text-xl font-bold text-gray-800 mb-2">
+                Women & Child Helpline
+              </h3>
+              <p class="text-3xl font-bold text-pink-600 mb-1">109</p>
+              <p class="text-gray-500 mb-4">Safety & Protection</p>
+              <div class="flex gap-3">
+                <button
+                  class="btn-primary text-white px-4 py-2 rounded-lg flex items-center flex-1 justify-center"
+                  onclick="copyNumber('109')"
+                >
+                  <i class="far fa-copy mr-2"></i>Copy
+                </button>
+                <button
+                  class="btn-success text-white px-4 py-2 rounded-lg flex items-center flex-1 justify-center"
+                  onclick="makeCall('Women & Child Helpline', '109')"
+                >
+                  <i class="fas fa-phone-alt mr-2"></i>Call
+                </button>
+              </div>
+            </div>
+
+            <!-- Disaster Management -->
+            <div
+              class="service-card bg-white rounded-2xl shadow-lg p-6 border border-gray-100"
+              data-name="Disaster Management"
+              data-number="10941"
+              data-department="Natural Disasters"
+            >
+              <div class="flex justify-between items-start mb-4">
+                <div
+                  class="w-14 h-14 rounded-xl bg-orange-100 flex items-center justify-center service-icon"
+                >
+                  <i
+                    class="fas fa-exclamation-triangle text-orange-600 text-2xl"
+                  ></i>
+                </div>
+                <button
+                  class="text-red-400 hover:text-red-600 transition-colors"
+                  onclick="toggleFavorite(this)"
+                >
+                  <i class="far fa-heart text-xl"></i>
+                </button>
+              </div>
+              <h3 class="text-xl font-bold text-gray-800 mb-2">
+                Disaster Management
+              </h3>
+              <p class="text-3xl font-bold text-orange-600 mb-1">10941</p>
+              <p class="text-gray-500 mb-4">Natural Disasters</p>
+              <div class="flex gap-3">
+                <button
+                  class="btn-primary text-white px-4 py-2 rounded-lg flex items-center flex-1 justify-center"
+                  onclick="copyNumber('10941')"
+                >
+                  <i class="far fa-copy mr-2"></i>Copy
+                </button>
+                <button
+                  class="btn-success text-white px-4 py-2 rounded-lg flex items-center flex-1 justify-center"
+                  onclick="makeCall('Disaster Management', '10941')"
+                >
+                  <i class="fas fa-phone-alt mr-2"></i>Call
+                </button>
+              </div>
+            </div>
+
+            <!-- Road Accident Help -->
+            <div
+              class="service-card bg-white rounded-2xl shadow-lg p-6 border border-gray-100"
+              data-name="Road Accident Help"
+              data-number="1095"
+              data-department="Traffic & Transport"
+            >
+              <div class="flex justify-between items-start mb-4">
+                <div
+                  class="w-14 h-14 rounded-xl bg-gray-100 flex items-center justify-center service-icon"
+                >
+                  <i class="fas fa-car-crash text-gray-600 text-2xl"></i>
+                </div>
+                <button
+                  class="text-red-400 hover:text-red-600 transition-colors"
+                  onclick="toggleFavorite(this)"
+                >
+                  <i class="far fa-heart text-xl"></i>
+                </button>
+              </div>
+              <h3 class="text-xl font-bold text-gray-800 mb-2">
+                Road Accident Help
+              </h3>
+              <p class="text-3xl font-bold text-gray-600 mb-1">1095</p>
+              <p class="text-gray-500 mb-4">Traffic & Transport</p>
+              <div class="flex gap-3">
+                <button
+                  class="btn-primary text-white px-4 py-2 rounded-lg flex items-center flex-1 justify-center"
+                  onclick="copyNumber('1095')"
+                >
+                  <i class="far fa-copy mr-2"></i>Copy
+                </button>
+                <button
+                  class="btn-success text-white px-4 py-2 rounded-lg flex items-center flex-1 justify-center"
+                  onclick="makeCall('Road Accident Help', '1095')"
                 >
                   <i class="fas fa-phone-alt mr-2"></i>Call
                 </button>
@@ -539,11 +675,8 @@
             <h2
               class="text-2xl lg:text-2xl font-bold text-gray-800 flex items-center"
             >
-              <i class="fas fa-history text-blue-600 mr-3"></i>
-              Recent Calls
+              <i class="fas fa-history text-blue-600 mr-3"></i> Recent Calls
             </h2>
-
-            <!-- Changed to button -->
             <button
               onclick="clearCallHistory()"
               class="text-2xl bg-blue-100 px-8 rounded-lg lg:text-xl font-bold text-gray-800 flex items-center hover:bg-blue-200 transition"
@@ -635,7 +768,7 @@
             Government of the People's Republic of Bangladesh
           </p>
           <p class="text-gray-400">
-            © 2024 All rights reserved | Emergency Services Available 24/7
+            © 2025 All rights reserved | Emergency Services Available 24/7
           </p>
           <div class="flex justify-center gap-6 mt-6">
             <a
