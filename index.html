@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Emergency Hotline - Bangladesh</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#1E40AF",
+              secondary: "#3B82F6",
+              accent: "#60A5FA",
+              success: "#059669",
+              warning: "#D97706",
+              danger: "#DC2626",
+            },
+            animation: {
+              "fade-in": "fadeIn 0.6s ease-out",
+              "slide-up": "slideUp 0.5s ease-out",
+              "pulse-ring": "pulseRing 2s infinite",
+              "bounce-in": "bounceIn 0.8s ease-out",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+      body {
+        font-family: "Inter", sans-serif;
+        background: linear-gradient(
+          135deg,
+          #f0f9ff 0%,
+          #e0f2fe 50%,
+          #bae6fd 100%
+        );
+        min-height: 100vh;
+      }
+
+      .gradient-bg {
+        background: linear-gradient(
+          135deg,
+          #1e3a8a 0%,
+          #3b82f6 50%,
+          #60a5fa 100%
+        );
+      }
+
+      .service-card {
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        transform: translateZ(0);
+        backface-visibility: hidden;
+      }
+
+      .service-card:hover {
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      }
+
+      .service-card:hover .service-icon {
+        transform: rotate(10deg) scale(1.1);
+      }
+
+      .service-icon {
+        transition: all 0.3s ease;
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, #3b82f6, #1e40af);
+        transition: all 0.3s ease;
+      }
+
+      .btn-primary:hover {
+        background: linear-gradient(135deg, #2563eb, #1e3a8a);
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
+      }
+
+      .btn-success {
+        background: linear-gradient(135deg, #10b981, #059669);
+        transition: all 0.3s ease;
+      }
+
+      .btn-success:hover {
+        background: linear-gradient(135deg, #059669, #047857);
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4);
+      }
+
+      .quick-access-card {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .quick-access-card:hover {
+        transform: translateY(-6px) rotate(2deg);
+      }
+
+      .floating-element {
+        animation: float 3s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes pulseRing {
+        0% {
+          transform: scale(0.8);
+          opacity: 1;
+        }
+        100% {
+          transform: scale(2);
+          opacity: 0;
+        }
+      }
+
+      @keyframes bounceIn {
+        0% {
+          transform: scale(0.3);
+          opacity: 0;
+        }
+        50% {
+          transform: scale(1.05);
+          opacity: 1;
+        }
+        70% {
+          transform: scale(0.9);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      .search-input:focus {
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+      }
+
+      .glass-effect {
+        backdrop-filter: blur(10px);
+        background: rgba(255, 255, 255, 0.8);
+      }
+
+      .text-shadow {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .call-history-item {
+        border-left: 4px solid #3b82f6;
+        transition: all 0.3s ease;
+      }
+
+      .call-history-item:hover {
+        border-left-color: #1e40af;
+        transform: translateX(5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Header -->
+    <header class="glass-effect border-b border-white/20 sticky top-0 z-50">
+      <nav class="container mx-auto px-4 lg:px-6 py-4">
+        <div class="flex justify-between items-center">
+          <div class="flex items-center space-x-3 animate-fade-in">
+            <div
+              class="w-12 h-12 rounded-full gradient-bg flex items-center justify-center shadow-lg"
+            >
+              <i class="fas fa-phone-alt text-white text-lg"></i>
+            </div>
+            <div>
+              <h1
+                class="text-xl lg:text-2xl font-bold text-gray-800 text-shadow"
+              >
+                Emergency Hotline
+              </h1>
+              <p class="text-sm text-gray-600 hidden sm:block">
+                Government of Bangladesh
+              </p>
+            </div>
+          </div>
+
+          <div class="flex gap-3 lg:gap-6">
+            <div
+              class="flex items-center px-4 lg:px-6 py-2 rounded-full bg-gradient-to-r from-red-50 to-red-100 border border-red-200 transition-all hover:shadow-md"
+            >
+              <span class="text-lg font-bold text-red-600" id="heartCount"
+                >0</span
+              >
+              <i class="fas fa-heart text-red-500 ml-2 floating-element"></i>
+            </div>
+
+            <div
+              class="flex items-center px-4 lg:px-6 py-2 rounded-full bg-gradient-to-r from-yellow-50 to-yellow-100 border border-yellow-200 transition-all hover:shadow-md"
+            >
+              <span class="text-lg font-bold text-yellow-600" id="coinCount"
+                >60</span
+              >
+              <i
+                class="fas fa-coins text-yellow-500 ml-2 floating-element"
+                style="animation-delay: 1s"
+              ></i>
+            </div>
+
+            <div
+              class="flex items-center px-4 lg:px-6 py-2 rounded-full bg-gradient-to-r from-blue-50 to-blue-100 border border-blue-200 transition-all hover:shadow-md hover:scale-105"
+            >
+              <span class="text-blue-600 text-lg font-bold" id="copyCount"
+                >0</span
+              >
+              <i
+                class="fas fa-copy text-blue-500 ml-2 floating-element"
+                style="animation-delay: 1s"
+              ></i>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container mx-auto px-4 lg:px-6 py-6 lg:py-8">
+      <!-- Banner Section -->
+      <div
+        class="gradient-bg rounded-2xl shadow-2xl p-6 lg:p-8 text-white mb-8 animate-slide-up"
+      >
+        <div class="flex flex-col lg:flex-row justify-between items-center">
+          <div class="text-center lg:text-left mb-4 lg:mb-0">
+            <h2
+              class="text-2xl lg:text-3xl xl:text-4xl font-bold mb-3 text-shadow"
+            >
+              Government Emergency Services
+            </h2>
+            <p class="text-blue-100 text-lg lg:text-xl">
+              At Your Fingertip - People's Republic of Bangladesh
+            </p>
+          </div>
+          <div class="hidden lg:block">
+            <div
+              class="w-24 h-24 rounded-full bg-white/20 flex items-center justify-center"
+            >
+              <i class="fas fa-shield-alt text-5xl text-white/90"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Search Section -->
+      <div
+        class="glass-effect rounded-2xl shadow-lg p-4 lg:p-6 mb-8 animate-fade-in"
+      >
+        <div class="relative">
+          <div
+            class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none"
+          >
+            <i class="fas fa-search text-gray-400 text-lg"></i>
+          </div>
+          <input
+            type="text"
+            placeholder="Search emergency services, numbers, or departments..."
+            class="search-input w-full pl-12 pr-4 py-4 bg-white border border-gray-200 rounded-xl outline-none transition-all focus:border-blue-400 text-lg"
+            id="searchInput"
+          />
+        </div>
+      </div>
+
+      <div class="grid lg:grid-cols-3 gap-8">
+        <!-- Emergency Services Section -->
+        <div class="lg:col-span-2">
+          <h2
+            class="text-2xl lg:text-3xl font-bold text-gray-800 mb-6 flex items-center"
+          >
+            <i class="fas fa-phone-volume text-blue-600 mr-3"></i>
+            Emergency Services
+          </h2>
+
+          <div class="grid sm:grid-cols-2 gap-6" id="servicesContainer">
+            <!-- Fire Service -->
+            <div
+              class="service-card bg-white rounded-2xl shadow-lg p-6 border border-gray-100"
+            >
+              <div class="flex justify-between items-start mb-4">
+                <div
+                  class="w-14 h-14 rounded-xl bg-red-100 flex items-center justify-center service-icon"
+                >
+                  <i class="fas fa-fire-extinguisher text-red-600 text-2xl"></i>
+                </div>
+                <button
+                  class="text-red-400 hover:text-red-600 transition-colors"
+                  onclick="toggleFavorite(this)"
+                >
+                  <i class="far fa-heart text-xl"></i>
+                </button>
+              </div>
+              <h3 class="text-xl font-bold text-gray-800 mb-2">Fire Service</h3>
+              <p class="text-3xl font-bold text-red-600 mb-1">999</p>
+              <p class="text-gray-500 mb-4">National Emergency</p>
+              <div class="flex gap-3">
+                <button
+                  class="btn-primary text-white px-4 py-2 rounded-lg flex items-center flex-1 justify-center"
+                  onclick="copyNumber('999')"
+                >
+                  <i class="far fa-copy mr-2"></i>Copy
+                </button>
+                <button
+                  class="btn-success text-white px-4 py-2 rounded-lg flex items-center flex-1 justify-center"
+                  onclick="makeCall('Fire Service', '999')"
+                >
+                  <i class="fas fa-phone-alt mr-2"></i>Call
+                </button>
+              </div>
+            </div>
+
+            <!-- Police -->
+            <div
+              class="service-card bg-white rounded-2xl shadow-lg p-6 border border-gray-100"
+            >
+              <div class="flex justify-between items-start mb-4">
+                <div
+                  class="w-14 h-14 rounded-xl bg-blue-100 flex items-center justify-center service-icon"
+                >
+                  <i class="fas fa-shield-alt text-blue-600 text-2xl"></i>
+                </div>
+                <button
+                  class="text-red-400 hover:text-red-600 transition-colors"
+                  onclick="toggleFavorite(this)"
+                >
+                  <i class="far fa-heart text-xl"></i>
+                </button>
+              </div>
+              <h3 class="text-xl font-bold text-gray-800 mb-2">Police</h3>
+              <p class="text-3xl font-bold text-blue-600 mb-1">999</p>
+              <p class="text-gray-500 mb-4">Emergency Police</p>
+              <div class="flex gap-3">
+                <button
+                  class="btn-primary text-white px-4 py-2 rounded-lg flex items-center flex-1 justify-center"
+                  onclick="copyNumber('999')"
+                >
+                  <i class="far fa-copy mr-2"></i>Copy
+                </button>
+                <button
+                  class="btn-success text-white px-4 py-2 rounded-lg flex items-center flex-1 justify-center"
+                  onclick="makeCall('Police','999')"
+                >
+                  <i class="fas fa-phone-alt mr-2"></i>Call
+                </button>
+              </div>
+            </div>
+
+            <!-- Ambulance -->
+            <div
+              class="service-card bg-white rounded-2xl shadow-lg p-6 border border-gray-100"
+            >
+              <div class="flex justify-between items-start mb-4">
+                <div
+                  class="w-14 h-14 rounded-xl bg-green-100 flex items-center justify-center service-icon"
+                >
+                  <i class="fas fa-ambulance text-green-600 text-2xl"></i>
+                </div>
+                <button
+                  class="text-red-400 hover:text-red-600 transition-colors"
+                  onclick="toggleFavorite(this)"
+                >
+                  <i class="far fa-heart text-xl"></i>
+                </button>
+              </div>
+              <h3 class="text-xl font-bold text-gray-800 mb-2">Ambulance</h3>
+              <p class="text-3xl font-bold text-green-600 mb-1">999</p>
+              <p class="text-gray-500 mb-4">Medical Emergency</p>
+              <div class="flex gap-3">
+                <button
+                  class="btn-primary text-white px-4 py-2 rounded-lg flex items-center flex-1 justify-center"
+                  onclick="copyNumber('999')"
+                >
+                  <i class="far fa-copy mr-2"></i>Copy
+                </button>
+                <button
+                  class="btn-success text-white px-4 py-2 rounded-lg flex items-center flex-1 justify-center"
+                  onclick="makeCall('ambulance','999')"
+                >
+                  <i class="fas fa-phone-alt mr-2"></i>Call
+                </button>
+              </div>
+            </div>
+
+            <!-- Anti-Corruption -->
+            <div
+              class="service-card bg-white rounded-2xl shadow-lg p-6 border border-gray-100"
+            >
+              <div class="flex justify-between items-start mb-4">
+                <div
+                  class="w-14 h-14 rounded-xl bg-purple-100 flex items-center justify-center service-icon"
+                >
+                  <i class="fas fa-balance-scale text-purple-600 text-2xl"></i>
+                </div>
+                <button
+                  class="text-red-400 hover:text-red-600 transition-colors"
+                  onclick="toggleFavorite(this)"
+                >
+                  <i class="far fa-heart text-xl"></i>
+                </button>
+              </div>
+              <h3 class="text-xl font-bold text-gray-800 mb-2">
+                Anti-Corruption
+              </h3>
+              <p class="text-3xl font-bold text-purple-600 mb-1">106</p>
+              <p class="text-gray-500 mb-4">Report Corruption</p>
+              <div class="flex gap-3">
+                <button
+                  class="btn-primary text-white px-4 py-2 rounded-lg flex items-center flex-1 justify-center"
+                  onclick="copyNumber('106')"
+                >
+                  <i class="far fa-copy mr-2"></i>Copy
+                </button>
+                <button
+                  class="btn-success text-white px-4 py-2 rounded-lg flex items-center flex-1 justify-center"
+                  onclick="makeCall('corruption','106')"
+                >
+                  <i class="fas fa-phone-alt mr-2"></i>Call
+                </button>
+              </div>
+            </div>
+
+            <!-- Railway Helpline -->
+            <div
+              class="service-card bg-white rounded-2xl shadow-lg p-6 border border-gray-100"
+            >
+              <div class="flex justify-between items-start mb-4">
+                <div
+                  class="w-14 h-14 rounded-xl bg-orange-100 flex items-center justify-center service-icon"
+                >
+                  <i class="fas fa-train text-orange-600 text-2xl"></i>
+                </div>
+                <button
+                  class="text-red-400 hover:text-red-600 transition-colors"
+                  onclick="toggleFavorite(this)"
+                >
+                  <i class="far fa-heart text-xl"></i>
+                </button>
+              </div>
+              <h3 class="text-xl font-bold text-gray-800 mb-2">
+                Railway Helpline
+              </h3>
+              <p class="text-3xl font-bold text-orange-600 mb-1">16318</p>
+              <p class="text-gray-500 mb-4">Train Information</p>
+              <div class="flex gap-3">
+                <button
+                  class="btn-primary text-white px-4 py-2 rounded-lg flex items-center flex-1 justify-center"
+                  onclick="copyNumber('16318')"
+                >
+                  <i class="far fa-copy mr-2"></i>Copy
+                </button>
+                <button
+                  class="btn-success text-white px-4 py-2 rounded-lg flex items-center flex-1 justify-center"
+                  onclick="makeCall('railway','16318')"
+                >
+                  <i class="fas fa-phone-alt mr-2"></i>Call
+                </button>
+              </div>
+            </div>
+
+            <!-- National Helpline -->
+            <div
+              class="service-card bg-white rounded-2xl shadow-lg p-6 border border-gray-100"
+            >
+              <div class="flex justify-between items-start mb-4">
+                <div
+                  class="w-14 h-14 rounded-xl bg-indigo-100 flex items-center justify-center service-icon"
+                >
+                  <i class="fas fa-headset text-indigo-600 text-2xl"></i>
+                </div>
+                <button
+                  class="text-red-400 hover:text-red-600 transition-colors"
+                  onclick="toggleFavorite(this)"
+                >
+                  <i class="far fa-heart text-xl"></i>
+                </button>
+              </div>
+              <h3 class="text-xl font-bold text-gray-800 mb-2">
+                National Helpline
+              </h3>
+              <p class="text-3xl font-bold text-indigo-600 mb-1">333</p>
+              <p class="text-gray-500 mb-4">Government Info</p>
+              <div class="flex gap-3">
+                <button
+                  class="btn-primary text-white px-4 py-2 rounded-lg flex items-center flex-1 justify-center"
+                  onclick="copyNumber('333')"
+                >
+                  <i class="far fa-copy mr-2"></i>Copy
+                </button>
+                <button
+                  class="btn-success text-white px-4 py-2 rounded-lg flex items-center flex-1 justify-center"
+                  onclick="makeCall('National', '333')"
+                >
+                  <i class="fas fa-phone-alt mr-2"></i>Call
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Call History -->
+        <div class="space-y-6">
+          <div class="flex justify-between">
+            <h2
+              class="text-2xl lg:text-2xl font-bold text-gray-800 flex items-center"
+            >
+              <i class="fas fa-history text-blue-600 mr-3"></i>
+              Recent Calls
+            </h2>
+
+            <!-- Changed to button -->
+            <button
+              onclick="clearCallHistory()"
+              class="text-2xl bg-blue-100 px-8 rounded-lg lg:text-xl font-bold text-gray-800 flex items-center hover:bg-blue-200 transition"
+            >
+              Clear History
+            </button>
+          </div>
+
+          <div class="space-y-4" id="callHistory"></div>
+        </div>
+      </div>
+
+      <!-- Quick Access Grid -->
+      <div class="mt-12">
+        <h2
+          class="text-2xl lg:text-3xl font-bold text-gray-800 mb-6 flex items-center"
+        >
+          <i class="fas fa-bolt text-yellow-500 mr-3"></i>
+          Quick Access
+        </h2>
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+          <div
+            class="quick-access-card bg-gradient-to-br from-red-500 to-red-600 rounded-2xl p-6 text-center text-white shadow-lg cursor-pointer"
+            onclick="quickCall('999')"
+          >
+            <div
+              class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-3"
+            >
+              <i class="fas fa-ambulance text-3xl"></i>
+            </div>
+            <p class="font-bold text-lg">Ambulance</p>
+            <p class="text-sm opacity-90">Emergency Medical</p>
+          </div>
+
+          <div
+            class="quick-access-card bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl p-6 text-center text-white shadow-lg cursor-pointer"
+            onclick="quickCall('999')"
+          >
+            <div
+              class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-3"
+            >
+              <i class="fas fa-fire-extinguisher text-3xl"></i>
+            </div>
+            <p class="font-bold text-lg">Fire Service</p>
+            <p class="text-sm opacity-90">Fire Emergency</p>
+          </div>
+
+          <div
+            class="quick-access-card bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl p-6 text-center text-white shadow-lg cursor-pointer"
+            onclick="quickCall('999')"
+          >
+            <div
+              class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-3"
+            >
+              <i class="fas fa-shield-alt text-3xl"></i>
+            </div>
+            <p class="font-bold text-lg">Police</p>
+            <p class="text-sm opacity-90">Security Emergency</p>
+          </div>
+
+          <div
+            class="quick-access-card bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl p-6 text-center text-white shadow-lg cursor-pointer"
+          >
+            <div
+              class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-3"
+            >
+              <i class="fas fa-plus-circle text-3xl"></i>
+            </div>
+            <p class="font-bold text-lg">More Services</p>
+            <p class="text-sm opacity-90">All Emergency</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8 mt-12">
+      <div class="container mx-auto px-4 lg:px-6">
+        <div class="text-center">
+          <div class="flex justify-center items-center mb-4">
+            <div
+              class="w-12 h-12 rounded-full gradient-bg flex items-center justify-center mr-3"
+            >
+              <i class="fas fa-phone-alt text-white text-lg"></i>
+            </div>
+            <h3 class="text-2xl font-bold">Emergency Hotline</h3>
+          </div>
+          <p class="text-lg mb-2">
+            Government of the People's Republic of Bangladesh
+          </p>
+          <p class="text-gray-400">
+            © 2024 All rights reserved | Emergency Services Available 24/7
+          </p>
+          <div class="flex justify-center gap-6 mt-6">
+            <a
+              href="#"
+              class="text-gray-400 hover:text-white transition-colors"
+            >
+              <i class="fab fa-facebook-f text-xl"></i>
+            </a>
+            <a
+              href="#"
+              class="text-gray-400 hover:text-white transition-colors"
+            >
+              <i class="fab fa-twitter text-xl"></i>
+            </a>
+            <a
+              href="#"
+              class="text-gray-400 hover:text-white transition-colors"
+            >
+              <i class="fab fa-instagram text-xl"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div
+      id="toast"
+      class="fixed bottom-6 right-6 bg-white border border-gray-200 rounded-2xl shadow-2xl p-4 transform translate-y-full opacity-0 transition-all duration-300 z-50"
+    >
+      <div class="flex items-center">
+        <div
+          class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center mr-3"
+        >
+          <i class="fas fa-check text-green-600"></i>
+        </div>
+        <span class="font-medium text-gray-800" id="toastMessage"
+          >Action completed!</span
+        >
+      </div>
+    </div>
+
+    <script src="./index.js"></script>
+  </body>
+</html>
